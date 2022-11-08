@@ -30,3 +30,16 @@ query {
   }
 }
 ```
+
+```json
+query {
+  categories { 
+    id
+    name
+    products {
+      name
+      description
+    }
+  }
+}
+```
