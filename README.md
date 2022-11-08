@@ -10,7 +10,7 @@ node index.js
 
 Go to http://localhost:4000
 
-In operation, type:
+In operation, try:
 
 ```json
 query {
@@ -18,6 +18,15 @@ query {
   products {
     name
     price
+  }
+}
+```
+
+```json
+query {
+  product(id:"53a0724c-a416-4cac-ae45-bfaedce1f147") {
+    description
+
   }
 }
 ```
