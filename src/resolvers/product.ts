@@ -1,9 +1,7 @@
-import { categories } from "../db";
-
 export const product =  {
-    category: (parent, _args, _context) => {
+    category: ({categoryId}, _, {categories}) => {
       return categories.find((c) => {
-        return c.id === parent.categoryId;
+        return c.id === categoryId;
       });
     }
   }
