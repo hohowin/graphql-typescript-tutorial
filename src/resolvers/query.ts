@@ -1,21 +1,19 @@
-import { categories, products } from "../db";
-
 export const query = {
     hello: () => {
       return ["Joy", "To", "The", "World!"];
     },
-    products: () => {
+    products: (_parents, _args, {products}) => {
       return products;
     },
-    product: (_parent, {id}, _context) => {
+    product: (_parent, {id}, {products}) => {
       return products.find((p) => {
         return p.id === id;
       });
     },
-    categories: () => {
+    categories: (_parent, _args, {categories}) => {
       return categories;
     },
-    category: (_parent, {id}, _context) => {
+    category: (_parent, {id}, {categories}) => {
       return categories.find((c) => {
         return c.id === id;
       })
