@@ -7,17 +7,17 @@ export const query = {
     products: () => {
       return products;
     },
-    product: (_parent, args, _context) => {
+    product: (_parent, {id}, _context) => {
       return products.find((p) => {
-        return p.id === args.id;
+        return p.id === id;
       });
     },
     categories: () => {
       return categories;
     },
-    category: (_parent, args, _context) => {
+    category: (_parent, {id}, _context) => {
       return categories.find((c) => {
-        return c.id === args.id;
+        return c.id === id;
       })
     },
   }
