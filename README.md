@@ -44,3 +44,25 @@ query {
   }
 }
 ```
+
+```
+query {
+  products(filter: {onSale: true}) {
+    name
+    price
+    onSale
+  }
+}
+```
+
+```
+query($filter: ProductsFilterInput, $productsFilter2: ProductsFilterInput) {
+  categories {
+    name
+    products(filter: {onSale: true}) {
+      name
+      onSale
+    }
+  }
+}
+```
