@@ -61,4 +61,12 @@ export const mutation = {
     });
     return true;
   },
+
+  deleteProduct: (_parent, { id }, { db }) => {
+    db.products = db.products.filter((p) => p.id !== id);
+    db.reviews = db.reviews.filter((r) => {
+      return r.productId !== id;
+    });
+    return true;
+  },
 };
