@@ -69,4 +69,9 @@ export const mutation = {
     });
     return true;
   },
+
+  deleteReview: (_parent, { id }, { db }) => {
+    db.reviews = db.reviews.filter((r) => r.id !== id);
+    return true;
+  }
 };
