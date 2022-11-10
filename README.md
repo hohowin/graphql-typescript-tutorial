@@ -114,3 +114,19 @@ mutation {
   }
 }
 ```
+
+```
+mutation($deleteCategoryId: ID!) {
+  deleteCategory(id: "34115aac-0ff5-4859-8f43-10e8db23602b")
+}
+
+query {
+  products {
+    id
+    name
+    category {
+      name
+    }
+  }
+}
+```
