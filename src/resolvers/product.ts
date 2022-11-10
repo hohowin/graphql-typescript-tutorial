@@ -1,14 +1,15 @@
-export const product =  {
+export const product = {
+  category: ({ categoryId }, _, { db }) => {
+    const { categories } = db;
+    return categories.find((c) => {
+      return c.id === categoryId;
+    });
+  },
 
-    category: ({categoryId}, _, {categories}) => {
-      return categories.find((c) => {
-        return c.id === categoryId;
-      });
-    },
-
-    reviews: ({id}, _, {reviews}) => {
-      return reviews.filter((r) => {
-        return r.productId === id;
-      });
-    }
-  }
+  reviews: ({ id }, _, { db }) => {
+    const { reviews } = db;
+    return reviews.filter((r) => {
+      return r.productId === id;
+    });
+  },
+};
