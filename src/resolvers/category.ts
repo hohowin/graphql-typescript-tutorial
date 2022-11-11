@@ -1,5 +1,5 @@
 export const category = {
-  products: ({ id }, { filter }, { db }) => {
+  products: ({ id }, { filter }, { db }): any[] => {
     const {  products }: { products: [any]} = db;
     const catProducts = products.filter((p) => {
       return p.categoryId === id;

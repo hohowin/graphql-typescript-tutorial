@@ -49,7 +49,7 @@ export const mutation = {
     return newReview;
   },
 
-  deleteCategory: (_parent, { id }, { db }) => {
+  deleteCategory: (_parent, { id }, { db }): boolean => {
     db.categories = db.categories.filter((c) => c.id !== id);
     db.products = db.products.map((p) => {
       if (p.categoryId === id)
@@ -62,7 +62,7 @@ export const mutation = {
     return true;
   },
 
-  deleteProduct: (_parent, { id }, { db }) => {
+  deleteProduct: (_parent, { id }, { db }): boolean => {
     db.products = db.products.filter((p) => p.id !== id);
     db.reviews = db.reviews.filter((r) => {
       return r.productId !== id;
@@ -70,7 +70,7 @@ export const mutation = {
     return true;
   },
 
-  deleteReview: (_parent, { id }, { db }) => {
+  deleteReview: (_parent, { id }, { db }): boolean => {
     db.reviews = db.reviews.filter((r) => r.id !== id);
     return true;
   },

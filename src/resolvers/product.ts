@@ -6,7 +6,7 @@ export const product = {
     });
   },
 
-  reviews: ({ id }, _, { db }) => {
+  reviews: ({ id }, _, { db }): any[] => {
     const { reviews }: { reviews: [any] } = db;
     return reviews.filter((r) => {
       return r.productId === id;

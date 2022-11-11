@@ -1,9 +1,9 @@
 export const query = {
-  hello: () => {
+  hello: (): string[] => {
     return ["Joy", "To", "The", "World!"];
   },
 
-  products: (_parents, { filter }, { db }) => {
+  products: (_parents, { filter }, { db }): any[] => {
     const { products } = db;
     let filtered = products;
 
@@ -25,7 +25,7 @@ export const query = {
     });
   },
 
-  categories: (_parent, _args, { db }) => {
+  categories: (_parent, _args, { db }): any[] => {
     const { categories } = db;
     return categories;
   },
