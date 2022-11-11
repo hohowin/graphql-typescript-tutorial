@@ -2,8 +2,8 @@ import { v4 as uuid } from "uuid";
 
 export const mutation = {
   addCategory: (_parent, { input }, { db }) => {
-    const { categories } = db;
-    const { name } = input;
+    const { categories }: { categories: [any] } = db;
+    const { name }: { name: string } = input;
     const newCategory = {
       id: uuid(),
       name: name,
@@ -14,9 +14,9 @@ export const mutation = {
   },
 
   addProduct: (_parent, { input }, { db }) => {
-    const { products } = db;
-    const { name, description, image, price, onSale, quantity, categoryId } =
-      input;
+    const { products }: { products: [any] } = db;
+    const { name, description, image, price, onSale, quantity, categoryId }:  
+      { name: string, description: string, image: string, price: number, onSale: boolean, quantity: number, categoryId: string } = input;
     const newProduct = {
       id: uuid(),
       name: name,
@@ -33,8 +33,9 @@ export const mutation = {
   },
 
   addReview: (_parent, { input }, { db }) => {
-    const { reviews } = db;
-    const { date, title, comment, rating, productId } = input;
+    const { reviews }: { reviews: [any] } = db;
+    const { date, title, comment, rating, productId }: 
+      { date: string, title: string, comment: string, rating: number, productId: string } = input;
     const newReview = {
       id: uuid(),
       date: date,
@@ -75,7 +76,7 @@ export const mutation = {
   },
 
   updateCategory: (_parent, { id, input }, { db }) => {
-    const index = db.categories.findIndex((c) => c.id === id);
+    const index: number = db.categories.findIndex((c) => c.id === id);
     if (index === -1) return null;
 
     db.categories[index] = {
@@ -87,7 +88,7 @@ export const mutation = {
   },
 
   updateProduct: (_parent, { id, input }, { db }) => {
-    const index = db.products.findIndex((p) => p.id === id);
+    const index: number = db.products.findIndex((p) => p.id === id);
     if (index === -1) return null;
 
     db.products[index] = {
@@ -99,7 +100,7 @@ export const mutation = {
   },
 
   updateReview: (_parent, { id, input }, { db }) => {
-    const index = db.reviews.findIndex((r) => r.id === id);
+    const index: number = db.reviews.findIndex((r) => r.id === id);
     if (index === -1) return null;
 
     db.reviews[index] = {
